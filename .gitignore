@@ -2,3 +2,4 @@ secrets.json
 .terraform*
 .terraform
 terraform.tfstate*
+credentials/secrets.json
