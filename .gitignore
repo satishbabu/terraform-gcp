@@ -1,0 +1,4 @@
+secrets.json
+.terraform*
+.terraform
+terraform.tfstate*
