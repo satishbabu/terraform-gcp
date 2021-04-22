@@ -5,7 +5,7 @@ resource "google_storage_bucket" "bucket" {
 
   labels = {
     "name" = "satish-test-bucket-gcp"
-    location = "us-east1"
+    location = "us-east1" 
   }
 
   versioning {
