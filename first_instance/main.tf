@@ -1,7 +1,7 @@
 resource "google_compute_instance" "appserver" {
   count = "${length(var.name_count)}"
   name = "test-server-${count.index+1}"
-  machine_type = var.machine_type
+  machine_type = var.machine_type["dev"]
 
   boot_disk {
     initialize_params {
