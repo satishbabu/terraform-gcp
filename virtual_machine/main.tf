@@ -30,6 +30,17 @@ resource "google_compute_instance" "appserver" {
 
 }
 
+resource "google_compute_disk" "default" {
+  name = "test-desk"
+  type = "pd-ssd"
+  zone = "us-east1-b"
+  size = 10
+}
+
+resource "google_compute_attached_disk" "default" {
+  disk = "${google_compute_disk.default.self_link}"
+  instance = "${google_compute_instance.appserver.self_link}"
+}
 
 # app server
 output "machine_type" { value = "${google_compute_instance.appserver.machine_type}" }
