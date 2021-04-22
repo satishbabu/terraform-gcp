@@ -1,5 +1,6 @@
 resource "google_compute_instance" "appserver" {
-  name = "test-server"
+  count = "${length(var.name_count)}"
+  name = "test-server-${count.index+1}"
   machine_type = var.machine_type
 
   boot_disk {
@@ -18,5 +19,5 @@ resource "google_compute_instance" "appserver" {
 
 }
 
-output "machine_type" { value = "${google_compute_instance.appserver.machine_type}" }
-output "name" { value = "${google_compute_instance.appserver.name}" }
+output "machine_type" { value = "${google_compute_instance.appserver.*.machine_type}" }
+output "name" { value = "${google_compute_instance.appserver.*.name}" }
