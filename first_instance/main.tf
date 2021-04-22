@@ -21,3 +21,4 @@ resource "google_compute_instance" "appserver" {
 
 output "machine_type" { value = "${google_compute_instance.appserver.*.machine_type}" }
 output "name" { value = "${google_compute_instance.appserver.*.name}" }
+output "instance_id" {value = "${join(",", google_compute_instance.appserver.*.machine_type)}"}
